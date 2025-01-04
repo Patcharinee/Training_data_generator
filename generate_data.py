@@ -6,6 +6,8 @@ from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
+from langchain_ollama import ChatOllama
+import json
 
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
@@ -77,6 +79,37 @@ def create_qa_pairs_JSON_parser(content):
     return response
 
 
+def create_qa_pairs_JSON_llama(content):
+
+    # get question-answer pairs from the provided content using llama 3.2
+    llm = ChatOllama(
+        model = "llama3.2",
+        temperature = 0,
+    )
+
+    messages = [
+        ("human", f"Create 5 question-answer pairs for a short-answer quiz in JSON format with keys “question“,”answer” solely from the following information —-{content}---"),
+    ]
+    print("creating question-answer pair")
+    response = llm.invoke(messages).content
+    print(response)
+
+    print("extracting question-answer from LLM response")
+    # split response string to get only the question and answer parts of the response
+    test = response.split("```")
+    print(test[1])
+
+    # convert string to  object
+    json_object = json.loads(test[1])
+
+    # print the output
+    print(type(json_object))
+    print(json_object)
+    print("done")
+
+    return json_object
+
+
 # partitioning pdf document and create chunks
 filename = "pyATS_p1_30.pdf"
 print(filename)
@@ -85,12 +118,19 @@ chunks = chunk_document(filename)
 print(f"{len(chunks)}  chunks of text are created")
 
 # generate question-answer pairs to be the data for model finetuning 
-n = 1
-j = 50
+output = []
+n = 3
 for i in range(0,n):
+     print(f"*****************chunk {i}******************")
      #qa_output = create_qa_pairs_JSON_parser(chunks[i].text)
-     qa_output = create_qa_pairs(chunks[i].text)
+     #qa_output = create_qa_pairs(chunks[i].text)
+     qa_output = create_qa_pairs_JSON_llama(chunks[i].text)
      print("--------------------------------")
      print(chunks[i].text)
      print("--------------------------------")
      print(qa_output)
+     print("extending the final output list of questions-answers")
+     output.extend(qa_output)
+print("final output :")
+print(output)
+
