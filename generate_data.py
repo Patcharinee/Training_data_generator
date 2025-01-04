@@ -98,10 +98,13 @@ def create_qa_pairs_JSON_llama(content):
     print("extracting question-answer from LLM response")
     # split response string to get only the question and answer parts of the response
     test = response.split("```")
-    print(test[1])
+    #print(test[1])
 
     # convert string to  object
-    json_object = json.loads(test[1])
+    if len(test) > 1:
+        json_object = json.loads(test[1])
+    else:
+        json_object = []
 
     # print the output
     print(type(json_object))
@@ -112,42 +115,55 @@ def create_qa_pairs_JSON_llama(content):
 
 
 # partitioning pdf document and create chunks
-filename = "pyATS_p1_30.pdf"
-print(filename)
-chunks = chunk_document(filename)
+#filename = "pyATS_p1_30.pdf"
+#print(filename)
+#chunks = chunk_document(filename)
+#print(f"{len(chunks)}  chunks of text are created")
 
-print(f"{len(chunks)}  chunks of text are created")
+# convert chunks to dataframe and save to document_chunks.csv
+#print("saving document chunks to document_chunks.csv")
+#df_chunks = pd.DataFrame(chunks)
+#df_chunks.to_csv('document_chunks.csv', index=False, header=["text"])
+
 
 # generate question-answer pairs to be the data for model finetuning 
+doc_chunks = pd.read_csv("document_chunks.csv")
 output = []
-n = len(chunks)
-print(f"n = {n}")
-for i in range(0,n):
+output_filename = 'training_data.csv'
+# start creating questions and answers for chunk j to last chunk 
+j = 25 
+n = len(doc_chunks)
+print(f"working on chunk {j} to {n-1}")
+for i in range(j,n):
      print(f"*****************chunk {i}******************")
+     print("--------------------------------")
+     print(doc_chunks["text"][i])
+     print("--------------------------------")
      #qa_output = create_qa_pairs_JSON_parser(chunks[i].text)
      #qa_output = create_qa_pairs(chunks[i].text)
-     qa_output = create_qa_pairs_JSON_llama(chunks[i].text)
-     print("--------------------------------")
-     print(chunks[i].text)
-     print("--------------------------------")
+     qa_output = create_qa_pairs_JSON_llama(doc_chunks["text"][i])
+
      print(qa_output)
      
-     # convert output to dataframe
-     df = pd.DataFrame(qa_output)
-     
-     # saving output to training_data.csv file
-     if i==0:
-        # save the dataframe to training_data.csv file (overwrite the file if exists)
-        print("saving output to training_data.csv")
-        df.to_csv('training_data.csv', index=False)
+     if len(qa_output) > 0:
+        # convert output to dataframe
+        df = pd.DataFrame(qa_output)
+        
+        # saving output to training_data.csv file
+        if os.path.exists(output_filename):
+            # append the dataframe to training_data.csv file
+            print("adding output to training_data.csv")
+            df.to_csv(output_filename, mode='a', index=False, header=False)
+        else:
+            # create training_data.csv file and save the dataframe to the file 
+            print("saving output to training_data.csv")
+            df.to_csv(output_filename, index=False)
      else:
-        # append the dataframe to training_data.csv file
-        print("adding output to training_data.csv")
-        df.to_csv('training_data.csv', mode='a', index=False, header=False)
-     
-     
-     #print("extending the final output list of questions-answers")
-     #output.extend(qa_output)
+        print("no new questions-answers created.")
+    
+
+        #print("extending the final output list of questions-answers")
+        #output.extend(qa_output)
 
 #print("final output :")
 #print(output)
