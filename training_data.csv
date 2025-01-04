@@ -1,0 +1,16 @@
+question,answer
+What is the main focus of this book?,To explore the powerful capabilities of automated network testing with the Cisco pyATS framework.
+Why is network testing and validation considered a low-risk domain?,"Because it is a low-risk, yet powerful domain in the network automation space."
+What will readers learn from this book?,"How pyATS can be leveraged to run tests against network devices, and how to integrate pyATS into larger workflows using CI/CD pipelines and AI."
+What is the purpose of the pyATS library (Genie)?,Not explicitly stated in the provided text
+What tools or technologies will be used to integrate pyATS into larger workflows?,CI/CD pipelines and artificial intelligence (AI)
+Who is the intended audience for this book?,Network professionals and software developers
+What programming language is pyATS built on?,Python
+What is the focus of this book in terms of network automation?,"Device configuration, data parsing, APIs, parallel programming, artificial intelligence, and automated network testing"
+Who can benefit from learning pyATS as it relates to the Cisco DevNet Expert Lab exam?,Candidates looking to learn pyATS
+What is the recommended skill level for readers of this book?,Comfortable with Python
+What is the main topic of Chapter 1?,NetDevOps
+How to install and upgrade pyATS?,Using Python package management tools and built-in pyATS commands
+What is a testbed in the context of this book?,A collection of devices connected together for testing purposes
+What is covered in Chapter 3?,"YAML basics, device connection abstractions, and methods for testbed validation"
+What is the focus of Chapter 2?,Installing and upgrading pyATS

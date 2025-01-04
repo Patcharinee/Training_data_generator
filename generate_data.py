@@ -8,6 +8,7 @@ from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from langchain_ollama import ChatOllama
 import json
+import pandas as pd
 
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
@@ -129,8 +130,24 @@ for i in range(0,n):
      print(chunks[i].text)
      print("--------------------------------")
      print(qa_output)
-     print("extending the final output list of questions-answers")
-     output.extend(qa_output)
-print("final output :")
-print(output)
+     
+     # convert output to dataframe
+     df = pd.DataFrame(qa_output)
+     
+     # saving output to training_data.csv file
+     if i==0:
+        # save the dataframe to training_data.csv file (overwrite the file if exists)
+        print("saving output to training_data.csv")
+        df.to_csv('training_data.csv', index=False)
+     else:
+        # append the dataframe to training_data.csv file
+        print("adding output to training_data.csv")
+        df.to_csv('training_data.csv', mode='a', index=False, header=False)
+     
+     
+     #print("extending the final output list of questions-answers")
+     #output.extend(qa_output)
+
+#print("final output :")
+#print(output)
 
