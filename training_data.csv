@@ -14,3 +14,113 @@ How to install and upgrade pyATS?,Using Python package management tools and buil
 What is a testbed in the context of this book?,A collection of devices connected together for testing purposes
 What is covered in Chapter 3?,"YAML basics, device connection abstractions, and methods for testbed validation"
 What is the focus of Chapter 2?,Installing and upgrading pyATS
+What is the main focus of Chapter 4?,"This chapter reviews the different components that make up AEtest, the testing infrastructure that is the core of pyATS."
+What topics are covered in this chapter?,"Defining testcases and individual test sections, running testscripts"
+What can be achieved by reading this chapter?,"Understanding how to introduce test inputs and parameters, define test sections, control the flow of test execution, and review test results with built-in reporting features."
+Who is the author of the book?,ptg45047941
+Where can you find this chapter?,From the Library of Tos Chaiwong
+What is the focus of Chapter 5?,Vendor-neutral automation strategies
+What does Chapter 6 cover?,Test-Driven Development (TDD) and its application in network automation
+What is the main topic of pyATS learn and parse features?,Vendor-neutral automation strategies
+What skills are covered in Chapter 5?,Effective network data handling
+What framework is explored in Chapter 6?,pyATS
+What is the primary focus of Chapter 8?,Automated network testing
+What type of testing is explored in Chapter 8?,"Software version testing, interface testing, neighbor testing, reachability testing, intent-validation testing, and feature testing"
+How can pyATS logs be analyzed for enhanced analysis?,Using the pyATS logs HTML viewer
+What is Jinja2 templating used for in Chapter 7?,Document creation
+What type of testing is essential for ensuring network reliability and performance?,Intent-validation testing and feature testing
+What is the purpose of triggers and verifications in pyATS?,To build dynamic testcases with a low-code approach that can change with network requirements.
+What are some tools used to generate intent-based configurations in Chapter 10?,"Data models, Jinja2 templates, and Genie Conf objects."
+Why are network snapshots useful?,They can help with troubleshooting or learning about the network's operating state at a point in time.
+What is the main focus of Chapter 10?,Generating intent-based configurations and pushing them to network devices.
+What is the purpose of Chapter 11?,To profile the network by creating and comparing snapshots of the network.
+What is the main focus of Chapter 12?,"This chapter introduces pyATS recordings, covering the recording of pyATS jobs and the playback of these recordings."
+What can be simulated using a mock device in this chapter?,Device interactions through the mock device CLI
+Which chapter focuses on working with Application Programming Interfaces (API)?,"Chapter 13, ""Working with Application Programming Interfaces (API)"""
+What is the purpose of the pyATS API framework?,To provide insights into efficient network automation and management through API interactions.
+What type of connector is mentioned in Chapter 13 as part of the pyATS API framework?,REST connector
+What is the purpose of parallel call (pcall) in pyATS?,Parallel execution
+How does pyATS Clean feature reset devices during or after testing?,During or after testing
+What is pyATS Blitz and its primary function?,Creating a low-code approach to building pyATS testcases using YAML syntax
+How does parallel processing (parallelism) speed up testing in pyATS?,By enabling parallel execution
+What is the basis for pyATS' parallel call (pcall) feature?,The multiprocessing package in the Python standard library
+What does Chapter 17 cover?,"Integrating pyATS with Webex, including pyATS job and health check integrations."
+What is the focus of Chapter 18?,"Running pyATS as a Container, focusing on the pyATS official Docker container."
+What does Chapter 19 cover?,"pyATS Health Check, including built-in health checks for devices under testing."
+What is the main topic of Chapter 17?,Integrating pyATS with Webex
+What does Chapter 18 introduce?,The concept of containers and building a pyATS image from scratch.
+What is XPRESSO?,pyATS XPRESSO
+What is CI/CD?,A common practice in software development to build and test code before it's pushed to production.
+What tools are used in CI/CD with pyATS?,"GitLab, Ansible, and pyATS"
+What is the purpose of XPRESSO?,To provide a beginner's guide to getting started with XPRESSO and details on running pyATS jobs within the XPRESSO environment.
+What does CI/CD stand for?,Continuous Integration and Continuous Deployment
+What is Robot Framework?,An open-source test automation framework that allows you to use English-like keywords to define testcases.
+What libraries are integrated into Robot Framework for network device interaction and testcase definition?,"Unicon, pyATS, and the pyATS library (Genie)."
+"What is the focus of Chapter 23, 'Leveraging Artificial Intelligence in pyATS'?","The integration of pyATS with artificial intelligence, focusing on leveraging the OpenAI API for enhanced network automation."
+What technique is used in Chapter 23 to handle intelligent data?,Retrieval augmented generation (RAG) with Langchain.
+What tool is showcased in Chapter 23 as a means of rapid prototyping for AI-powered network management?,Streamlit.
+"What is the focus of Appendix A, 'Writing Your Own Parser'?",This appendix covers how to contribute to the genieparser library by creating a new parser for a Cisco IOS XE show command.
+Who is credited with Figure 1.1?,chinnappa/123RF
+What type of data are protected in testbed.yaml files through secret strings?,Sensitive data
+"Which company is credited with Figures 5.15-5.17, 7.24-7.34?",Microsoft Corporation
+"What is the focus of Chapter 1, 'Foundations of NetDevOps'?",This chapter covers the foundations of NetDevOps
+What has driven the evolution of enterprise networking over the past several years?,"An explosion of new tools, technologies, and methodologies"
+How do modern network solutions approach design and implementation?,"With an automate-first, agile mindset"
+What is replacing traditional command-line interfaces in networks today?,Automation and programmability
+What role do software development practices play in network engineering activities?,"In planning, designing, building, and operating networks"
+"What approach is being adopted by network engineers for network design, configuration, and testing?","A more holistic, software-driven, automated vision"
+What is pyATS?,"Python Automated Test Systems, or pyATS"
+Who originally created pyATS for internal Cisco testing?,Jean-Benoit Aubin and Siming Yuan
+What has evolved from the original pyATS creation?,"A free, public, mass-adoption network automation framework"
+What is the focus of test-driven automation with Cisco pyATS?,Accelerating NetDevOps
+What has pyATS become in the DevOps movement?,"The present, not just the future"
+What topic does this chapter cover regarding network operations?,Traditional network operations
+Which software development methodology is covered in this chapter?,Not specified
+Is comparing network automation tools a topic covered in this chapter?,Yes
+What is the focus of the modern network engineer toolkit discussed in this chapter?,Not specified
+Are software development methodologies specifically covered in this chapter?,Yes
+What has remained relevant after nearly 50 years of experience in the networking realm?,The OSI and TCP/IP models
+How do individuals with profound knowledge in networking transition into NetDevOps developers?,By melding their networking prowess with contemporary tools and technologies essential for automation
+What were the limitations of early monitoring and management tools?,"They primarily focused on scrutinizing the active status of elements, but fell short of monitoring systems as a cohesive whole"
+Who had access to larger-scale automation due to its high coding requirements?,Those who could afford the coding outlay
+What tools were used initially for monitoring and managing configurations?,Element managers
+What were some of the main challenges that hindered the adoption of automation technologies in the past?,Costs stemmed from the lack of standardized interfaces on vendor equipment and high-level language support.
+How has the business case for automation changed over time?,"The business case for automation was hard to justify without a substantial scale that could offset the high initial costs, but this has now changed favorably."
+What role have vendors played in making automation technologies more accessible?,Vendors have lowered the entry barriers by prioritizing their APIs and supporting languages like Python.
+How has the shift to a hybrid developer role impacted training and learning for network engineers?,"Transitioning from a purely network-centric career to a hybrid developer role now entails a lesser extent of training and learning, thanks to improved accessi- bility and support for automation tools."
+What is the focus of the ensuing sections in relation to NetDevOps?,"The ensuing sections delve into the typical duties of a network engineer and the application of these skills within the NetDevOps framework, reflecting the changes brought about by more accessible automation solutions."
+What is crucial for establishing the desired outcomes of a network?,The overall architecture of the network
+Who typically handles high-level escalations and contributes to change management boards?,Network architects
+What appliances are necessary to meet service level agreements (SLAs) and business requirements?,"Ancillary appliances such as wireless access and identity, automation or software-defined network (SDN) controllers"
+Who interfaces with enterprise leadership and management teams to establish roadmaps and long-term planning?,Network architects
+What is the role of network architects in relation to product selection?,They work with vendors to select products
+What types of tools are often selected for a modern high-level network design?,Closed- and open-source tools
+How do network architects typically collaborate on a greenfield network project?,"With vendor's experts, ISP, CTO, CIO, and CISO"
+What is the primary purpose of a network in an organization?,To connect people with their systems
+How much planning is typically required for a greenfield network?,A lot
+Who are some key stakeholders involved in translating business requirements and budgets for a network project?,"Vendor's experts, ISP, CTO, CIO, and CISO"
+What is the primary responsibility of an architect in a traditional network operations environment?,"The architect best understands the desired state, the expected baseline performance and services offered"
+"In a modern NetDevOps environment, what role does the architect typically play?",The architect often plays the role of the senior developer over the network
+What are some additional expectations of a modern network architect beyond being a highly certified and capable network engineer?,"Code reviews, approving the merging of code via Git pull requests, developing or refactoring network automation code, ensuring the quality of continuous integration/continuous development (CI/CD) pipelines"
+What is the architect's role in a scrum team?,Holding daily standups
+How does the architect contribute to the quality of CI/CD pipelines?,Ensuring the quality of continuous integration/continuous development (CI/CD) pipelines
+What is a high-level design in an architecture?,A visual representation of the network
+What type of traffic flows east-west in a modular architecture?,Traffic remaining with a module horizon tally
+What is one way that north-south traffic flows in a modular architecture?,Traffic leaving a module northbound toward the public Internet and network egress to the ISP or southbound into the data center
+Who validates high-level designs?,Collaborative architecture teams
+What are some reference models used in creating high-level designs?,"Vendor-validated designs, request for comments (RFCs), and industry best practices"
+What types of information are included in the high-level design phase?,"IP address scheme, network protocol design (such as OSPF areas), and service requirements"
+Is the high-level design a static document or does it change over time?,The high-level design is a living document that evolves and changes as the network goes through its operational lifecycle in a continuous feedback loop.
+What routing protocol is mentioned as an example of one that may be selected for use in the high-level design?,OSPF
+What security feature is mentioned as being included in the service requirements?,802.1x
+What type of technology is required to support Power over Ethernet (PoE)?,Ethernet
+What is the primary function of the memory management unit (MMU) in a computer system?,"The MMU translates virtual addresses to physical addresses, allowing the operating system to manage memory efficiently."
+What is the purpose of the bus protocol in computer architecture?,The bus protocol allows different components of a computer system to communicate with each other through a shared communication medium.
+How does the instruction set architecture (ISA) affect the performance of a computer program?,"The ISA determines the instructions that can be executed by the processor, which in turn affects the performance and efficiency of the program."
+What is the role of the interrupt handler in a computer system?,"The interrupt handler handles interrupts generated by hardware devices, allowing the operating system to manage these events efficiently."
+How does caching work in a computer system?,"Caching stores frequently accessed data in a faster, more accessible location, reducing the time it takes for the processor to access main memory."
+What is the purpose of assigning internet addresses as subnets to areas of the network?,To enable routing and security protocol configurations
+How are redundant links typically configured in a network design?,As inter- faces are bundled and routers are set up in highly redundant pairs
+What is the typical order of developing low-level designs in a network?,"Usually, low-level designs are developed outward from the center of the network"
+Which layer of the network is typically routed next after the high-speed backbone and core routing configurations?,Distribution and aggregation layers
+What is the purpose of establishing access port configurations in a data center?,"For edge features like power, identity, security, and aggregation"

@@ -120,7 +120,8 @@ print(f"{len(chunks)}  chunks of text are created")
 
 # generate question-answer pairs to be the data for model finetuning 
 output = []
-n = 3
+n = len(chunks)
+print(f"n = {n}")
 for i in range(0,n):
      print(f"*****************chunk {i}******************")
      #qa_output = create_qa_pairs_JSON_parser(chunks[i].text)
