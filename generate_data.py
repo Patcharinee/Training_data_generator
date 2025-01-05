@@ -10,11 +10,13 @@ from langchain_ollama import ChatOllama
 import json
 import pandas as pd
 
+# this is for using OpenAI to generate questions and answers data
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 temperature = 0
 
+# perform partitioning and chunking input pdf document
 def chunk_document(filename): 
     print("start partitioning")
     
@@ -32,7 +34,6 @@ def chunk_document(filename):
 
 
 # create qa pairs using openAI without JSON output parser #
-
 def create_qa_pairs(content):
     
     # Create a prompt template
@@ -79,10 +80,9 @@ def create_qa_pairs_JSON_parser(content):
 
     return response
 
-
+# get question-answer pairs from the provided content using llama 3.2
 def create_qa_pairs_JSON_llama(content):
 
-    # get question-answer pairs from the provided content using llama 3.2
     llm = ChatOllama(
         model = "llama3.2",
         temperature = 0,
@@ -98,10 +98,10 @@ def create_qa_pairs_JSON_llama(content):
     print("extracting question-answer from LLM response")
     # split response string to get only the question and answer parts of the response
     test = response.split("```")
-    #print(test[1])
 
     # convert string to  object
     if len(test) > 1:
+        #print(test[1])
         json_object = json.loads(test[1])
     else:
         json_object = []
@@ -115,23 +115,23 @@ def create_qa_pairs_JSON_llama(content):
 
 
 # partitioning pdf document and create chunks
-#filename = "pyATS_p1_30.pdf"
-#print(filename)
-#chunks = chunk_document(filename)
-#print(f"{len(chunks)}  chunks of text are created")
+filename = "pyATS_p1_30.pdf"
+print(filename)
+chunks = chunk_document(filename)
+print(f"{len(chunks)}  chunks of text are created")
 
 # convert chunks to dataframe and save to document_chunks.csv
-#print("saving document chunks to document_chunks.csv")
-#df_chunks = pd.DataFrame(chunks)
-#df_chunks.to_csv('document_chunks.csv', index=False, header=["text"])
-
+print("saving document chunks to document_chunks.csv")
+df_chunks = pd.DataFrame(chunks)
+df_chunks.to_csv('document_chunks.csv', index=False, header=["text"])
 
 # generate question-answer pairs to be the data for model finetuning 
 doc_chunks = pd.read_csv("document_chunks.csv")
 output = []
 output_filename = 'training_data.csv'
-# start creating questions and answers for chunk j to last chunk 
-j = 25 
+
+# start creating questions and answers for chunk #j to chunk #n-1 
+j = 0 
 n = len(doc_chunks)
 print(f"working on chunk {j} to {n-1}")
 for i in range(j,n):
@@ -151,7 +151,7 @@ for i in range(j,n):
         
         # saving output to training_data.csv file
         if os.path.exists(output_filename):
-            # append the dataframe to training_data.csv file
+            # append the dataframe to existing training_data.csv file
             print("adding output to training_data.csv")
             df.to_csv(output_filename, mode='a', index=False, header=False)
         else:
@@ -161,10 +161,4 @@ for i in range(j,n):
      else:
         print("no new questions-answers created.")
     
-
-        #print("extending the final output list of questions-answers")
-        #output.extend(qa_output)
-
-#print("final output :")
-#print(output)
 
