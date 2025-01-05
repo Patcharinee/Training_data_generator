@@ -139,8 +139,8 @@ for i in range(j,n):
      print("--------------------------------")
      print(doc_chunks["text"][i])
      print("--------------------------------")
-     #qa_output = create_qa_pairs_JSON_parser(chunks[i].text)
-     #qa_output = create_qa_pairs(chunks[i].text)
+     #qa_output = create_qa_pairs_JSON_parser(doc_chunks["text"][i])
+     #qa_output = create_qa_pairs(doc_chunks["text"][i])
      qa_output = create_qa_pairs_JSON_llama(doc_chunks["text"][i])
 
      print(qa_output)
