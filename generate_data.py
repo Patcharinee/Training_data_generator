@@ -115,7 +115,7 @@ def create_qa_pairs_JSON_llama(content):
 
 
 # partitioning pdf document and create chunks
-filename = "pyATS_p1_30.pdf"
+filename = "pyATS_p31_74.pdf"
 print(filename)
 chunks = chunk_document(filename)
 print(f"{len(chunks)}  chunks of text are created")
