@@ -115,7 +115,7 @@ def create_qa_pairs_JSON_llama(content):
 
 
 # partitioning pdf document and create chunks
-filename = "pyATS_p31_74.pdf"
+filename = "pyATS_p101_120.pdf"
 print(filename)
 chunks = chunk_document(filename)
 print(f"{len(chunks)}  chunks of text are created")
@@ -131,11 +131,11 @@ output = []
 output_filename = 'training_data.csv'
 
 # start creating questions and answers for chunk #j to chunk #n-1 
-j = 0 
+j = 31 
 n = len(doc_chunks)
 print(f"working on chunk {j} to {n-1}")
 for i in range(j,n):
-     print(f"*****************chunk {i}******************")
+     print(f"*****************chunk {i} / {n-1}*******************")
      print("--------------------------------")
      print(doc_chunks["text"][i])
      print("--------------------------------")
