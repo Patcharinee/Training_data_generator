@@ -2,3 +2,4 @@
 *.pdf
 *.csv
 *.ipynb
+finetune_model.py
